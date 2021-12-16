@@ -16,7 +16,7 @@ import copy
 
 
 def Q1a():
-    pass
+    return Configuration()
     
 def Q1b_f():
     return Configuration({'screenPosition': -5, 'xAxisColor': [1, 1, 0]}). \
@@ -37,14 +37,15 @@ def Q2c():
             )
 
 def Q3a():
-    pass  
+    wall1 = Wall({'width':7, 'height':2.6})
+    return Configuration({'edges':True}).add(wall1)
 
 def Q4a():
     # Ecriture en utilisant des variables : A compléter
-    wall1 = Wall(...)
-    wall2 = Wall(...)
-    wall3 = Wall(...)
-    wall4 = Wall(...)  
+    wall1 = Wall({'position':[0,0,0], 'width':7, 'height':2.6})
+    wall2 = Wall({'position':[0-wall1.getParameter('thickness'),5,0], 'width':7, 'height':2.6})
+    wall3 = Wall({'position':[0,0,0], 'width':5, 'height':2.6, 'orientation':90})
+    wall4 = Wall({'position':[0+wall1.getParameter('thickness'),-7,0], 'width':5, 'height':2.6, 'orientation':90}) 
     house = House({'position': [-3, 1, 0], 'orientation':0})
     house.add(wall1).add(wall3).add(wall4).add(wall2)
     return Configuration().add(house)   
@@ -65,9 +66,9 @@ def Q5b():
     print(section.canCreateOpening(opening1))
     print(section.canCreateOpening(opening2))    
     print(section.canCreateOpening(opening3))
-    return Configuration()    
+    return Configuration().add(opening1).add(opening2).add(opening3)  
     
-def Q5c1():      
+def Q5c1():  
     section = Section({'width':7, 'height':2.6})
     opening1 = Opening({'position': [2, 0, 0], 'width':0.9, 'height':2.15, 'thickness':0.2, 'color': [0.7, 0.7, 0.7]})
     sections = section.createOpening(opening1)
@@ -94,14 +95,14 @@ def Q6():
 def main():
     # Enlever un des commentaires pour la question traitée
     
-    configuration = Q1a()
+    # configuration = Q1a()
     # configuration = Q1b_f()
     # configuration = Q2b()
     # configuration = Q2c()
     # configuration = Q3a()
     # configuration = Q4a()
     # configuration = Q5a()
-    # configuration = Q5b()
+    configuration = Q5b()
     # configuration = Q5c1()
     # configuration = Q5c2() 
     # configuration = Q5d()
